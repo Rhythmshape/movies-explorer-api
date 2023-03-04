@@ -5,3 +5,5 @@
  - Ссылка на репозиторий проекта: https://github.com/Rhythmshape/movies-explorer-api/tree/level-1
 
  - Публичный IP : 51.250.76.251
+
+ - Бэкенд : api.movies.khalina.nomoredomains.work
