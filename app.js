@@ -12,13 +12,14 @@ mongoose.set('strictQuery', true);
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const handleError = require('./middlewares/handleError');
+const { mongoDb } = require('./utils/startConfig');
 
 const { PORT = 3001 } = process.env;
 
-mongoose.connect('mongodb://localhost:27017/bitfilmsdb', {
+mongoose.connect(mongoDb, {
   useNewUrlParser: true,
 })
-  .then(console.log('connected to data base'));
+  .then(console.log('connected to mongo data base'));
 
 const app = express();
 app.use(cors);
