@@ -1,6 +1,10 @@
 const allowedCors = [
   'http://localhost:3000',
   'http://localhost:3001',
+  'http://movies.khalina.nomoredomains.work',
+  'https://movies.khalina.nomoredomains.work',
+  'http://api.movies.khalina.nomoredomains.work',
+  'https://api.movies.khalina.nomoredomains.work',
 
 ];
 
