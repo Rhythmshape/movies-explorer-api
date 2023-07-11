@@ -60,6 +60,8 @@ module.exports.updateUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new BadRequestError('Введены некорректные данные'));
+      } else if (err.name === 'MongoServerError' && err.code === 11000) {
+        next(new ConflictRequestError('Пользователь уже существует'));
       } else {
         next(err);
       }

@@ -12,6 +12,7 @@ mongoose.set('strictQuery', true);
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const handleError = require('./middlewares/handleError');
+
 const { mongoDb } = require('./utils/startConfig');
 
 const { PORT = 3001 } = process.env;
@@ -23,12 +24,13 @@ mongoose.connect(mongoDb, {
 
 const app = express();
 app.use(cors);
-app.use(limiter);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(helmet());
 app.use(requestLogger);
+app.use(limiter);
 
 app.get('/crash-test', () => {
   setTimeout(() => {
