@@ -4,12 +4,9 @@ const NotFoundError = require('../errors/NotFoundError');
 const ForbiddenError = require('../errors/ForbiddenError');
 
 module.exports.getMovies = (req, res, next) => {
-  Movie.find({ owner: req.user._id }).sort({ createdAt: -1 })
+  Movie.find({ owner: req.user._id })
     .then((movies) => {
-      if (!movies) {
-        throw new NotFoundError('Фильмы не найдены.');
-      }
-      res.status(200).send({ movies });
+      res.status(200).send(movies);
     })
     .catch(next);
 };
